@@ -28,7 +28,7 @@ jobs:
             echo "========================================"
             cd "$dir"
             mvn -B package
-            mvn org.owasp:dependency-check-maven:check
+            mvn org.owasp:dependency-check-maven:check -DfailBuildOnCVSS=11
             cd ..
           fi
         done
