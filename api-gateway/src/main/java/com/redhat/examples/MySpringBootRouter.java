@@ -42,15 +42,16 @@ public class MySpringBootRouter extends RouteBuilder {
 
         rest()
             .get("/gateway").enableCORS(true)
-            .route()
-                .multicast(AggregationStrategies.flexible().accumulateInCollection(ArrayList.class))
-                .parallelProcessing()
-                    .to("direct:microprofile")
-                    .to("direct:springboot")
-                .end()
+            .to("direct:gateway");
+
+        from("direct:gateway")
+            .multicast(AggregationStrategies.flexible().accumulateInCollection(ArrayList.class))
+            .parallelProcessing()
+                .to("direct:microprofile")
+                .to("direct:springboot")
+            .end()
             .marshal().json(JsonLibrary.Jackson)
-            .convertBodyTo(String.class)
-        .endRest();
+            .convertBodyTo(String.class);
     }
 
     public void setSpringbootsvcurl(String springbootsvcurl) {
