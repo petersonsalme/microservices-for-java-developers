@@ -9,7 +9,6 @@
   "author": "Peterson Salme",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "ip": "^1.1.5"
+    "express": "^4.17.1"
   }
 }
