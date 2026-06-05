@@ -27,7 +27,7 @@ jobs:
             echo "Processing Maven module: $dir"
             echo "========================================"
             cd "$dir"
-            mvn -B package -DskipTests
+            mvn -B package
             cd ..
           fi
         done
