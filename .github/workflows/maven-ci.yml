@@ -20,4 +20,15 @@ jobs:
         cache: maven
         
     - name: Build and Test with Maven
-      run: mvn -B package --file pom.xml
+      run: |
+        for dir in */; do
+          if [ -f "$dir/pom.xml" ]; then
+            echo "========================================"
+            echo "Processing Maven module: $dir"
+            echo "========================================"
+            cd "$dir"
+            mvn -B package
+            mvn org.owasp:dependency-check-maven:check
+            cd ..
+          fi
+        done
