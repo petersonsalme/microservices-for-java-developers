@@ -21,8 +21,6 @@ microservices-for-java-developers/
 
 ## Regras e Comandos
 
-- Prefix shell commands with `rtk` (see `.agents/rules/rtk.md`).
-
 1. **Build e Execução por Serviço:**
    - **Java / Spring Boot / Thorntail:** Cada módulo Java possui seu próprio `pom.xml`.
      - Build: `mvn clean package` dentro do diretório do módulo.
@@ -33,5 +31,3 @@ microservices-for-java-developers/
    - Manter as assinaturas de API esperadas pelo `api-gateway` e pelos clientes HTTP.
    - Commits seguindo Conventional Commits (`feat:`, `fix:`, `refactor:`, `docs:`).
    - Respostas ao usuário em Português do Brasil; código e documentação técnica em Inglês.
-
-@.agents/rules/rtk.md
